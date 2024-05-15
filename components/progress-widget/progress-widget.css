@@ -1,0 +1,169 @@
+:root {
+  --primary: #005cff;
+  --secondary: #dae6ec;
+  --font-family: Arial, Helvetica, sans-serif;
+  --font-size: 15px;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.progress-widget{
+  width: 320px;
+  height: 568px;
+}
+
+.progress-widget__title{
+  margin: 0;
+  padding: 23px 0 0 20px;
+  font: 600 var(--font-size)/18px var(--font-family);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@property --percentage {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+.progressbar {
+  --percentage: var(--value);
+  --size: 120px;
+  margin: 65px auto 0;
+  width: var(--size);
+  height: var(--size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.animated {
+  animation: rotate 5s linear infinite;
+}
+
+.progressbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(var(--primary) calc(var(--percentage) * 1%), var(--secondary) 0);
+}
+
+.progressbar__circle{
+  position: absolute;
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.controll-bar{
+  width: 140px;
+  margin: 93px auto 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.controll-bar__button-block {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.controll-bar__text{
+  margin-left: 20px;
+  font: 600 var(--font-size)/18px var(--font-family);
+}
+
+.controll-bar__button {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 29px;
+}
+
+.controll-bar__button-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.controll-bar__button-input::placeholder{
+  font-family: var(--font-family);
+}
+
+.controll-bar__button-tumbler {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: var(--secondary);
+  transition: background-color 0.4s;
+}
+
+.controll-bar__button-tumbler:before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  transition: transform 0.4s;
+}
+
+.controll-bar__button-input:checked + .controll-bar__button-tumbler {
+  background-color: var(--primary);
+}
+
+.controll-bar__button-input:checked + .controll-bar__button-tumbler:before {
+  transform: translateX(16px);
+}
+
+.controll-bar__button-tumbler.round {
+  border-radius: 34px;
+}
+
+.controll-bar__button-tumbler.round:before {
+  border-radius: 50%;
+}
+
+.controll-bar__value-input{
+  width: 45px;
+  height: 29px;
+  border: 1px solid black;
+  font: 600 var(--font-size)/29px var(--font-family);
+  border-radius: 34px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.controll-bar__value-input:focus{
+  outline: none;
+}
+
+@media screen and (orientation: landscape) {
+  .progress-widget {
+    width: 568px;
+    height: 320px;
+    display: flex;
+  }
+
+  .progressbar {
+    margin: 100px 0 0 30px;
+  }
+
+  .controll-bar {
+    margin: 105px 0 0 85px;
+  }
+}
