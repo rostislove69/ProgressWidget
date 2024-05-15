@@ -1,3 +1,3 @@
-import { progressWidget } from './components/progress-widget/ProgressWidget.js';
+import { progressWidget } from "./components/progress-widget/ProgressWidget.js";
 
 await progressWidget.initialize();

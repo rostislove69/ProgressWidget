@@ -9,15 +9,15 @@
   visibility: hidden;
 }
 
-.progress-widget{
+.progress-widget {
   width: 320px;
   height: 568px;
 }
 
-.progress-widget__title{
+.progress-widget__title {
   margin: 0;
   padding: 23px 0 0 20px;
-  font: 600 var(--font-size)/18px var(--font-family);
+  font: 600 var(--font-size) / 18px var(--font-family);
 }
 
 @keyframes rotate {
@@ -30,7 +30,7 @@
 }
 
 @property --percentage {
-  syntax: '<number>';
+  syntax: "<number>";
   inherits: true;
   initial-value: 0;
 }
@@ -57,10 +57,13 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: conic-gradient(var(--primary) calc(var(--percentage) * 1%), var(--secondary) 0);
+  background: conic-gradient(
+    var(--primary) calc(var(--percentage) * 1%),
+    var(--secondary) 0
+  );
 }
 
-.progressbar__circle{
+.progressbar__circle {
   position: absolute;
   background-color: white;
   width: 100px;
@@ -68,7 +71,7 @@
   border-radius: 50%;
 }
 
-.controll-bar{
+.controll-bar {
   width: 140px;
   margin: 93px auto 0;
   display: flex;
@@ -82,9 +85,9 @@
   margin-bottom: 12px;
 }
 
-.controll-bar__text{
+.controll-bar__text {
   margin-left: 20px;
-  font: 600 var(--font-size)/18px var(--font-family);
+  font: 600 var(--font-size) / 18px var(--font-family);
 }
 
 .controll-bar__button {
@@ -100,7 +103,7 @@
   height: 0;
 }
 
-.controll-bar__button-input::placeholder{
+.controll-bar__button-input::placeholder {
   font-family: var(--font-family);
 }
 
@@ -138,17 +141,17 @@
   border-radius: 50%;
 }
 
-.controll-bar__value-input{
+.controll-bar__value-input {
   width: 45px;
   height: 29px;
   border: 1px solid black;
-  font: 600 var(--font-size)/29px var(--font-family);
+  font: 600 var(--font-size) / 29px var(--font-family);
   border-radius: 34px;
   box-sizing: border-box;
   text-align: center;
 }
 
-.controll-bar__value-input:focus{
+.controll-bar__value-input:focus {
   outline: none;
 }
 

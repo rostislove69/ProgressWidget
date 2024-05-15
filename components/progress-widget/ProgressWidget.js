@@ -57,8 +57,10 @@ class ProgressWidget {
     const visabilityCheckbox = this.view.querySelector(".visability");
 
     valueInput.addEventListener("input", () => {
-      let value = parseInt(valueInput.value);
-      if (value < 0) {
+      let value = valueInput.value;
+      if (value === "") {
+        value = 0;
+      } else if (value < 0) {
         valueInput.value = 0;
         value = 0;
       } else if (value > 100) {
